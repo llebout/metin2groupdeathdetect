@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <base target="_blank">
+
+    <style>
+        .color-cell {
+            color: white;
+            text-align: center;
+            height: 100px;
+        }
+
+        th {
+            width: 100px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="container">
+        <h1>Metin2 Group Death Detect
+        </h1>
+        <button id="startButton">Start</button>
+        <fieldset id="options" style="display:none">
+            <legend>Advanced options</legend>
+            <select id="displaySurface">
+                <option value="window">Prefer to share a window</option>
+            </select>
+        </fieldset>
+        <button id="clearButton">Clear monitored pixels</button> Monitored Pixels: <b id="monitoredPixels"></b>
+        <p style="display: flex;">
+            <video id="video" autoplay playsinline muted style="width: 1px; height: 1px; position: fixed; opacity: 0; top: 0; left: 0;"></video>
+            <canvas id="canvas"></canvas>
+        </p>
+        <div id="errorMsg"></div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Hovered color</th>
+                    <th>Selected color</th>
+                    <th>Hovered zoom</th>
+
+                    <th>Pixel correct color</th>
+                    <th>Pixel mismatch color</th>
+                    <th>Pixel mismatch zoom</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="color-cell" id="hovered-color"></td>
+                    <td class="color-cell" id="selected-color"></td>
+                    <td align="center">
+                        <canvas id="pixelated-zoom" width="100" height="100"></canvas>
+                    </td>
+                    <td class="color-cell" id="correct-color"></td>
+                    <td class="color-cell" id="mismatch-color"></td>
+                    <td align="center">
+                        <canvas id="pixelated-mismatch-zoom" width="100" height="100"></canvas>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><b>Bug:</b> Do not scroll/resize the page after setting up monitoring.</p>
+        <p></p>
+        <p><span>After clicking <b>Start</b> and selecting your main leveling window, click on the video at the left
+                side of the desired group members HP bars to register pixels to monitor so that it can be detected when
+                they turn completely black from group member death. In fact this web page only checks if the selected
+                pixels change color at all.</span></p>
+        <p>Example:</p>
+        <p><img src="img/group_hp_bar_example.png">
+        </p>
+        <p><span>This web page will play a sound when a group member death is detected (more simply if the selected
+                pixels changed color at all). If anything goes wrong or you want to start over click <b>Clear monitored
+                    pixels</b> to delete all pixels being monitored and stop receiving any sound alarms.</span></p>
+
+    </div>
+
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

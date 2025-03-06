@@ -2,7 +2,9 @@
 
 Static hosted version: https://llebout.github.io/metin2groupdeathdetect/
 
-## How it works 
+## How it works
+
+It uses WebRTC screen share functionality to look at specific windows.
 
 It only compares the value of some saved pixel locations on the screen every second, if they change, it plays a sound. The project itself can be reused for any purpose that requires checking then alerting if a pixel at some location changed, not only Metin2.
 
